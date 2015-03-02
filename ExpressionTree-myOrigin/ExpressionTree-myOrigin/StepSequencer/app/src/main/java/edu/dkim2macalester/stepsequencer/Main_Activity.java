@@ -1,5 +1,6 @@
 package edu.dkim2macalester.stepsequencer;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +19,7 @@ public class Main_Activity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.main_activity_layout);
 
         int gridWidth = 16;
@@ -41,10 +43,10 @@ public class Main_Activity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 //change images from not_selected.png to selected0.png (lighter to darker grid cell)
                 ((ImageView) v).setImageResource(R.drawable.selected0);
-                gridModel[position].pressed();
+                 gridModel[position].pressed();
             }
 
-                //play/pause button dynamics
+            //play/pause button dynamics
             public void play(View v) {
                 int i = 0;
                 for (final gridSquare square : gridModel) {
